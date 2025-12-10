@@ -27,11 +27,15 @@ st.markdown("---")
 def load_data():
     """Cargar datos desde el archivo consolidado"""
     try:
-        # Cargar el archivo CSV comprimido o normal
-        if os.path.exists('consolidated_flytxt_logs.csv.gz'):
-            st.sidebar.info("⏳ Cargando datos comprimidos...")
+        # Prioridad: archivo completo comprimido > archivo sample > archivo normal
+        if os.path.exists('consolidated_flytxt_logs_full.csv.gz'):
+            st.sidebar.info("⏳ Cargando datos completos (1.2M registros)...")
+            df = pd.read_csv('consolidated_flytxt_logs_full.csv.gz', compression='gzip')
+            st.sidebar.success(f"✓ Datos completos cargados: {len(df):,} registros")
+        elif os.path.exists('consolidated_flytxt_logs.csv.gz'):
+            st.sidebar.info("⏳ Cargando muestra de datos...")
             df = pd.read_csv('consolidated_flytxt_logs.csv.gz', compression='gzip')
-            st.sidebar.success(f"✓ Datos cargados: {len(df):,} registros")
+            st.sidebar.warning(f"⚠️ Muestra cargada: {len(df):,} registros (no todos los datos)")
         elif os.path.exists('consolidated_flytxt_logs.csv'):
             st.sidebar.info("⏳ Cargando datos... (puede tardar un momento con archivos grandes)")
             df = pd.read_csv('consolidated_flytxt_logs.csv')

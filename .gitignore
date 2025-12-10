@@ -1,6 +1,11 @@
-# Archivos grandes
+# Archivos grandes (mantener solo versiones comprimidas)
 consolidated_flytxt_logs.csv
+consolidated_flytxt_logs_sample_10k.csv
 *.xlsx
+
+# Scripts de compresión (no necesarios en producción)
+comprimir_csv.py
+comprimir_completo.py
 
 # Carpetas de países (CSVs descargados)
 cr/
