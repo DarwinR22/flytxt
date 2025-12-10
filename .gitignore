@@ -1,0 +1,51 @@
+# Archivos grandes
+consolidated_flytxt_logs.csv
+*.xlsx
+
+# Carpetas de países (CSVs descargados)
+cr/
+gt/
+hn/
+ni/
+sv/
+
+# Scripts auxiliares
+descargar_paises.py
+consolidar_logs_s3.py
+analisis_noviembre.py
+subir.sh
+
+# Imágenes generadas
+*.png
+
+# Archivos temporales
+resumen_diario_noviembre.csv
+README_DASHBOARD.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema
+.DS_Store
+Thumbs.db
