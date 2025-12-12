@@ -230,7 +230,8 @@ with tab1:
             arrowhead=2,
             arrowcolor="green",
             bgcolor="lightgreen",
-            bordercolor="green"
+            bordercolor="green",
+            font=dict(color="black", size=12)
         )
         
         fig_tendencia.update_layout(
