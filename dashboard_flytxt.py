@@ -155,8 +155,9 @@ with col3:
 
 with col4:
     if 'status' in df_filtrado.columns and len(df_filtrado) > 0:
-        # Detectar valores de éxito (TransferSFTP_Success o success)
-        tasa_exito = (df_filtrado['status'].str.contains('Success', case=False, na=False)).sum() / len(df_filtrado) * 100
+        # Detectar valores de éxito - buscar cualquier variante de Success
+        registros_exitosos = df_filtrado['status'].astype(str).str.contains('Success|success|SUCCESS', case=False, na=False).sum()
+        tasa_exito = (registros_exitosos / len(df_filtrado)) * 100
         st.metric("Tasa de Éxito", f"{tasa_exito:.1f}%")
     else:
         st.metric("Tasa de Éxito", "N/A")
